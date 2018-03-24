@@ -5,20 +5,20 @@ user = 'xiaoliang'
 account = Account(user)
 
 wif = {
-    "posting": "用户xiaoliang的POSTING key"
+    "posting": "我的posting key"
 }
 
 try:
-  steem = Steem(keys=wif)
+    steem = Steem(keys=wif)
 
-  sbd   = account.balances["rewards"]["SBD"]
-  st      = account.balances["rewards"]["STEEM"]
-  vests = account.balances["rewards"]["VESTS"]
-
-  if sbd >0 or st >0 or vests > 0:
-    print('claiming rewards ... ')
-    steem.claim_reward_balance(account=user)
-  else:
-    print('nothing to claim')
+    sbd   = account.balances["rewards"]["SBD"]
+    st    = account.balances["rewards"]["STEEM"]
+    vests = account.balances["rewards"]["VESTS"]
+    
+    if sbd >0 or st >0 or vests > 0:
+      print('claiming rewards ... ')
+      steem.claim_reward_balance(account=user)
+    else:
+      print('nothing to claim')
 except:
-  print('oops, something not right.')
+    print('oops, something not right.')
