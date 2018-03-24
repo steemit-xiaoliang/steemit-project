@@ -5,7 +5,7 @@ user = 'xiaoliang'
 account = Account(user)
 
 wif = {
-    "posting": "将你的POSTING key复制到这里"
+    "posting": "用户xiaoliang的POSTING key"
 }
 
 try:
