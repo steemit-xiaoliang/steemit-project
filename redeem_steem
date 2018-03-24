@@ -1,0 +1,24 @@
+from steem import Steem
+from steem.account import Account
+
+user = 'xiaoliang'
+account = Account(user)
+
+wif = {
+    "posting": "将你的POSTING key复制到这里"
+}
+
+try:
+  steem = Steem(keys=wif)
+
+  sbd   = account.balances["rewards"]["SBD"]
+  st      = account.balances["rewards"]["STEEM"]
+  vests = account.balances["rewards"]["VESTS"]
+
+  if sbd >0 or st >0 or vests > 0:
+    print('claiming rewards ... ')
+    steem.claim_reward_balance(account=user)
+  else:
+    print('nothing to claim')
+except:
+  print('oops, something not right.')
